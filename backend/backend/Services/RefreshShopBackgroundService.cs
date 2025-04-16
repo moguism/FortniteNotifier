@@ -20,8 +20,8 @@ public class RefreshShopBackgroundService : BackgroundService
         // El tiempo que falta hasta medianoche
         TimeSpan timeUntilMidnight = nextMidnight - utcNow;
 
-        // Se espera ese tiempo
-        await Task.Delay(timeUntilMidnight, stoppingToken);
+        // Se espera ese tiempo más otros 10 minutos por si las moscas
+        await Task.Delay(timeUntilMidnight.Add(new TimeSpan(0, 10, 0)), stoppingToken);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)

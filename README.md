@@ -1,0 +1,1 @@
+Lo básico ya está hecho, pero me faltan algunas cosas, como las traducciones o mejorar este README
