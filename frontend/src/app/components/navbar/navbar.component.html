@@ -1,0 +1,11 @@
+<nav>
+    @if(!authService.isAuthenticated())
+    {
+        <p>Por favor, inicia sesión</p>
+        <img src="/images/login.webp" alt="login" (click)="login()">
+    }
+    @else {
+        <p>Bienvenido, {{ user }}</p>
+        <img src="/images/logout.webp" alt="login" (click)="logout()">
+    }
+</nav>

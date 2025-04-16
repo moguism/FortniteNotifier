@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="caja">
+
+    <form (submit)="createNewWishList()">
+        <input type="text" placeholder="Item name" [(ngModel)]="itemName" [ngModelOptions]="{standalone: true}" required="">
+        <button [disabled]="itemName.length < 1" type="submit">Enviar wishlist</button>
+    </form>
+
+    <h1>Mis wishlists</h1>
+    @for (wishlist of user?.wishlists; track $index) 
+    {
+        <div class="item">
+            <h2>{{ wishlist.item }}</h2>
+            <button (click)="deleteWishlist(wishlist.id)">Delete</button>
+        </div>
+    }
+
+    @if(alreadyInShop)
+    {
+        <p class="info-msg">El item ya escrito está ahora mismo en la tienda</p>
+    }
+
+</div>

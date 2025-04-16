@@ -1,0 +1,93 @@
+.caja {
+    width: 400px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(113, 113, 113, 0.953);
+    background-color: #5b5b5b;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ddd;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu button {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button
+{
+    color: #3d3d3d;
+}
+
+.remember-me-label
+{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.menu button.active {
+    background-color: #fff;
+    border-bottom: 2px solid #009dff;
+}
+
+.contenido {
+    padding: 20px;
+}
+
+input {
+    width: 95%;
+    font-size: 1.5rem;
+}
+
+.login input {
+    margin-bottom: 18px;
+}
+
+.registro input {
+    width: 95%;
+    font-size: 1.5rem;
+}
+
+input[type="checkbox"] {
+    width: 5%;
+}
+
+.registro input[type="file"] {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 18px;
+    margin-top: 5px;
+}
+
+#preview-img {
+    width: 45px;
+    height: 45px;
+    margin: 5px;
+    object-fit: cover;
+    /* Recorta la imagen sin deformarla */
+    object-position: center;
+}
+
+label {
+    font-size: 1.4rem;
+}
+
+
+button {
+    font-size: 1.5rem;
+}
+
+.error {
+    color: rgb(241, 126, 126);
+    text-align: left;
+    font-size: 1rem;
+    height: 18px;
+}

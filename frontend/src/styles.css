@@ -1,0 +1,63 @@
+/* ESTILOS GLOBALES :D */
+
+@font-face {
+    font-family: 'monogram';
+    src: url('/font/fortnite.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'monogram';
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("/images/locker.jpg");
+    background-size: cover;
+    background-color: black;
+}
+
+.login-background
+{
+    background-image: url("/images/login-background.jpg");
+}
+
+.rainbow-button {
+    border: 4px white;
+    border-style: solid;
+    border-radius: 50px;
+    background: linear-gradient(90deg,
+            rgba(47, 201, 226, 1),
+            rgba(114, 175, 68, 1),
+            rgba(255, 252, 60, 1),
+            rgba(236, 126, 80, 1),
+            rgba(219, 5, 99, 1));
+    font-size: 2rem;
+    width: 120px;
+    transition: 0.2s;
+}
+
+.rainbow-button:hover {
+    font-size: 2.1rem;
+    width: 125px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
+hr {
+    width: 50%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
