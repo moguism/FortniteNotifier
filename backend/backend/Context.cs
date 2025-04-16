@@ -16,7 +16,8 @@ public class Context : DbContext
         optionsBuilder.UseSqlite($"DataSource={baseDir}{DATABASE_PATH}");
 #else
 
-            optionsBuilder.UseMySql("", ServerVersion.AutoDetect(""));
+        string connectionString = Environment.GetEnvironmentVariable("ConnectionString");
+        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 #endif
     }
 }

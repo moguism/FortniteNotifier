@@ -4,7 +4,7 @@ namespace backend.Services;
 
 public class RefreshShopBackgroundService : BackgroundService
 {
-    private readonly TimeSpan _cleanupInterval = TimeSpan.FromMinutes(1);
+    private readonly TimeSpan _cleanupInterval = TimeSpan.FromMinutes(10);
     private readonly IServiceProvider _serviceProvider;
 
     public RefreshShopBackgroundService(IServiceProvider serviceProvider)
@@ -28,9 +28,9 @@ public class RefreshShopBackgroundService : BackgroundService
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            //await WaitUntilMidnightAsync(stoppingToken);
+            await WaitUntilMidnightAsync(stoppingToken);
 
-            /*using (IServiceScope scope = _serviceProvider.CreateScope())
+            using (IServiceScope scope = _serviceProvider.CreateScope())
             {
                 UnitOfWork unitOfWork = scope.ServiceProvider.GetRequiredService<UnitOfWork>();
                 EmailService emailService = scope.ServiceProvider.GetRequiredService<EmailService>();
@@ -45,7 +45,7 @@ public class RefreshShopBackgroundService : BackgroundService
                         await emailService.CreateEmailUser(user.Email, itemsFound);
                     }
                 }
-            }*/
+            }
 
             await Task.Delay(_cleanupInterval, stoppingToken);
         }

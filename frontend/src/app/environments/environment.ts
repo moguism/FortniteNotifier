@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: "https://localhost:7106/api/",
-    apiImg: "https://localhost:7106/",
+    apiUrl: "https://fortnite-notifier.runasp.net/api/",
+    apiImg: "https://fortnite-notifier.runasp.net/",
 };
