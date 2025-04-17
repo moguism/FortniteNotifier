@@ -4,7 +4,7 @@ namespace backend.Services;
 
 public class RefreshShopBackgroundService : BackgroundService
 {
-    private readonly TimeSpan _cleanupInterval = TimeSpan.FromMinutes(10);
+    private readonly TimeSpan _cleanupInterval = TimeSpan.FromDays(1);
     private readonly IServiceProvider _serviceProvider;
 
     public RefreshShopBackgroundService(IServiceProvider serviceProvider)
@@ -12,24 +12,11 @@ public class RefreshShopBackgroundService : BackgroundService
         _serviceProvider = serviceProvider;
     }
 
-    private async Task WaitUntilMidnightAsync(CancellationToken stoppingToken)
-    {
-        DateTime utcNow = DateTime.UtcNow;
-        DateTime nextMidnight = utcNow.Date.AddDays(1);
-
-        // El tiempo que falta hasta medianoche
-        TimeSpan timeUntilMidnight = nextMidnight - utcNow;
-
-        // Se espera ese tiempo más otros 10 minutos por si las moscas
-        await Task.Delay(timeUntilMidnight.Add(new TimeSpan(0, 10, 0)), stoppingToken);
-    }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            await WaitUntilMidnightAsync(stoppingToken);
-
             using (IServiceScope scope = _serviceProvider.CreateScope())
             {
                 UnitOfWork unitOfWork = scope.ServiceProvider.GetRequiredService<UnitOfWork>();
