@@ -24,6 +24,7 @@ namespace backend
             builder.Services.AddScoped<EmailService>();
 
             builder.Services.AddHostedService<RefreshShopBackgroundService>();
+            builder.Services.AddHostedService<HeartBeatBackgroundService>();
 
             builder.Services.AddControllers();
             builder.Services.AddControllers().AddJsonOptions(options =>
